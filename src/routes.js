@@ -1,6 +1,7 @@
 const express = require ('express');
 const routes = express.Router();
 
+ // PARTE 1: Rota dos exercícios feita pela Nat
 const exercicios = [
     {
         id:0,
@@ -50,7 +51,6 @@ routes.get('/exercises', (req, res) => {
     console.log(query);
 
     res.status(200).json(exercicios);
-
 })
 
 routes.post('/exercises', (req, res) => {
@@ -77,11 +77,42 @@ routes.put('/exercises/:userId', (req, res) => {
     exercicios.push(body);
 
     res.status(200).json({message: "Success"});
-})
+});
 
-routes.post('/home', (req, res) => {
-    console.log(req);
-    res.status(200).send("oi");
-})
+// PARTE 2: Rota users feita pela Amanda
+
+const users = [ // Criação de Usúarios para teste
+    {
+        user_id:0,
+        nome: "Amanda",
+        idade: 19,
+        cpf: 14551667610,
+        sexo: "feminino",
+        endereco: "Rua Rio Grande Bairro Novo Riacho numero 225",
+        cidadeestado: "Contagem Minas Gerais",
+        telefone: "35650057",
+        email: "amandafernandesalves11@gmail.com",
+        senha: "AmandinhafofisS2",
+        confirmacaosenha: "AmandinhafofisS2",
+    }
+];
+
+routes.get("/users", (req, res) => { //pega dados dos usuários
+    const query = req.query;
+    console.log(query);
+    res.status(200).json(users);
+});
+
+routes.post("/users", (req, res) => { // cria um novo usuário
+    const newUser = req.body;
+    users.push(newUser);
+    res.status(200).json({message: "Success"});
+});
+
+// Teste rota Home
+// routes.post("/home", (req, res) => {
+//     console.log(req);
+//     res.status(200).send("oi");
+// });
 
 module.exports = routes;
