@@ -26,22 +26,37 @@ module.exports = {
     async update(request, response){
         try {
             const {id_exercicio} = request.params;
-            const result = await ExerciseModel.updateById(id_exercicio, newExercise);
-            return response.status(200).json({id_exercicio: result});
+            const newExercise = request.body;
+
+            await ExerciseModel.updateById(id_exercicio, newExercise);
+
+            return response.status(200).json({ notification: "Exercise updated sucessfully"});
 
         } catch (error) {
             console.warn("Exercise update failed: ", error);
+
             return response.status(500).json({notification: "Internal server erros while trying to update Exercise"});
         }
     },
 
     async delete(request, response){
         try {
-            const newExercise = request.body;
-            const result = await ExerciseModel.create(newExercise);
-            return response.status(200).json({id_exercicio: result});
+            const {exercise_id} = request.params;
+            const result = await ExerciseModel.deleteById(exercise_id);
+
+            if (result === 0){
+                return response
+                .status(400)
+                .json({ notification: "exercise_id not found" });
+            }
+            
+            return response
+            .status(200)
+            .json({ notification: "Exercise deleted sucessfully"});
+
         } catch (error) {
             console.warn("Exercise delete failed: ", error);
+
             return response.status(500).json({notification: "Internal server erros while trying to delete Exercise"});
         }
     },
