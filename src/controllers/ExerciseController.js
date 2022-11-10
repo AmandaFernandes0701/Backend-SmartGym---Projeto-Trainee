@@ -15,18 +15,11 @@ module.exports = {
         }
     },
 
-    async getById(request, response){
+    async getByUser(request, response){
         try {
-            const {exercise_id} = request.params;
-            const result = await ExerciseModel.getByUserWithFilter(exercise_id, {});
-
-            return response.status(200).json({result});
+            
         } catch (error) {
-            console.warn("Exercise get failed: ", error);
-
-            return response.status(500).json({
-                notification: "Internal server erros while trying to get Exercises",
-            });
+            
         }
     },
 
