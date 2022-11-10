@@ -7,8 +7,8 @@
       table.string("id_exercicio").notNullable();
       table.foreign("id_exercicio").references("id_exercicio").inTable("exercise").onDelete("cascade");
 
-      table.integer("id_usuario").notNullable();
-      table.foreign("id_usuario").references("id_usuario").inTable("user").onDelete("cascade");
+      table.integer("user_id").notNullable();
+      table.foreign("user_id").references("user_id").inTable("user").onDelete("cascade");
     });
   };
   
