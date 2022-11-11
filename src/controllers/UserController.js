@@ -3,7 +3,7 @@ const UserModel = require("../models/user");
 
 const users = [ // Criação de Usúarios para teste
     {
-        user_id:0,
+        user_id: 0,
         nome: "Amanda",
         idade: 19,
         cpf: 14551667610,
@@ -19,23 +19,23 @@ const users = [ // Criação de Usúarios para teste
 
 
 module.exports = {
-    async create(request, response){
+    async create(request, response) {
 
         try {
             const newUser = request.body;
             const result = await UserModel.create(newUser);
-            return response.status(200).json({user_id: result});
+            return response.status(200).json({ user_id: result });
 
         } catch (error) {
-            
+
             console.warn("User create failed: ", error);
-            return response.status(500).json({notification: "Internal server erros while trying to create User"});
+            return response.status(500).json({ notification: "Internal server erros while trying to create User" });
         }
     },
 
-    async getById(request, response){
+    async getById(request, response) {
         try {
-            const {user_id} = request.params;
+            const { user_id } = request.params;
             const result = await UserModel.getByID(user_id);
 
             return response.status(200).json(result);
@@ -48,7 +48,7 @@ module.exports = {
         }
     },
 
-    async getAll(request, response){
+    async getAll(request, response) {
         try {
             const result = await UserModel.getAll();
 
@@ -62,40 +62,40 @@ module.exports = {
         }
     },
 
-    async update(request, response){
+    async update(request, response) {
         try {
-            const {user_id} = request.params;
+            const { user_id } = request.params;
             const newUser = request.body;
             await UserModel.updateById(user_id, newUser);
 
-            return response.status(200).json({ notification: "User updated sucessfully"});
+            return response.status(200).json({ notification: "User updated sucessfully" });
 
         } catch (error) {
             console.warn("User update failed: ", error);
 
-            return response.status(500).json({notification: "Internal server erros while trying to update User"});
+            return response.status(500).json({ notification: "Internal server erros while trying to update User" });
         }
     },
 
-    async delete(request, response){
+    async delete(request, response) {
         try {
-            const {user_id} = request.params;
+            const { user_id } = request.params;
             const result = await UserModel.deleteById(user_id);
 
-            if (result === 0){
+            if (result === 0) {
                 return response
-                .status(400)
-                .json({ notification: "user_id not found" });
+                    .status(400)
+                    .json({ notification: "user_id not found" });
             }
-            
+
             return response
-            .status(200)
-            .json({ notification: "User deleted sucessfully"});
+                .status(200)
+                .json({ notification: "User deleted sucessfully" });
 
         } catch (error) {
             console.warn("User delete failed: ", error);
 
-            return response.status(500).json({notification: "Internal server erros while trying to delete User"});
+            return response.status(500).json({ notification: "Internal server erros while trying to delete User" });
         }
     },
 };
