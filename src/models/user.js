@@ -11,6 +11,10 @@ module.exports = {
         return user_id;
     },
 
+    async getAll(){
+        const result = await connection("user").select("*");
+        return result;
+    },
     async getById({user_id}){
         const result = await connection("user").where({user_id}).select("*").first();
         return result;
