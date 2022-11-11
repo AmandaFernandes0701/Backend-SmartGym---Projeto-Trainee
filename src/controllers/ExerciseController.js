@@ -1,5 +1,44 @@
 const ExerciseModel = require("../models/exercise");
 
+const exercise = [ 
+    { 
+        id:0, 
+        name: "Cerrote", 
+    }, 
+    { 
+        id:1, 
+        name: "Extensão Tríceps", 
+    }, 
+    { 
+        id:2, 
+        name: "Flexão", 
+    }, 
+    { 
+        id:3, 
+        name: "Agachamento Livre", 
+    }, 
+    { 
+        id:4, 
+        name: "Leg Press", 
+    }, 
+    { 
+        id:5, 
+        name: "Cadeira Extensora", 
+    }, 
+    { 
+        id:6, 
+        name: "Quadríceps e Coluna", 
+    }, 
+    { 
+        id:7, 
+        name: "Posterior de Ombro", 
+    }, 
+    { 
+        id:8, 
+        name: "Downward Dog", 
+    }, 
+]
+
 module.exports = {
     async create(request, response){
 
