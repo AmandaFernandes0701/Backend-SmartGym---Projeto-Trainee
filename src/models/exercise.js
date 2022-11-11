@@ -12,6 +12,11 @@ module.exports = {
         return result;
     },
 
+    async getAll(){
+        const result = await connection("exercise").select("*");
+        return result;
+    },
+
     async getById({id_exercicio}){
         const result = await connection("exercise").where({id_exercicio}).select("*");
         return result;
