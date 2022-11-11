@@ -1,3 +1,4 @@
+const { getall } = require("../models/user");
 const UserModel = require("../models/user");
 
 const users = [ // Criação de Usúarios para teste
@@ -36,6 +37,20 @@ module.exports = {
         try {
             const {user_id} = request.params;
             const result = await UserModel.getByID(user_id);
+
+            return response.status(200).json(result);
+        } catch (error) {
+            console.warn("User get failed: ", error);
+
+            return response.status(500).json({
+                notification: "Internal server erros while trying to get Users",
+            });
+        }
+    },
+
+    async getAll(request, response){
+        try {
+            const result = await UserModel.getAll();
 
             return response.status(200).json(result);
         } catch (error) {
