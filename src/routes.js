@@ -7,6 +7,7 @@ const ExerciseController = require("./controllers/ExerciseController");
 // EXERCISES
 routes.get("/exercise/:id_exercicio:", ExerciseController.getById);
 routes.post("/exercise", ExerciseController.create);
+routes.post("/exerciseteste", ExerciseController.teste);
 routes.put("/exercise/:id_exercicio:", ExerciseController.update);
 routes.delete("/exercise/:id_exercicio:", ExerciseController.delete);
 
