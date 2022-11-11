@@ -40,24 +40,31 @@ const exercise = [
 ]
 
 module.exports = {
-    async create(request, response){
 
+
+    async teste(){
+        console.log("teste");
+    },
+
+    async create(request, response){
         try {
+            console.log("chegou");
             const newExercise = request.body;
             const result = await ExerciseModel.create(newExercise);
             return response.status(200).json({id_exercicio: result});
 
         } catch (error) {
-            
+            console.log("chegou");
             console.warn("Exercise create failed: ", error);
-            return response.status(500).json({notification: "Internal server erros while trying to create Exercise"});
+            return response.status(400).json({notification: "Internal server erros while trying to create Exercise"});
         }
     },
 
     async getById(request, response){
         try {
-            const {exercise_id} = request.params;
-            const result = await ExerciseModel.getByUserWithFilter(exercise_id, {});
+            const {id_exercicio} = request.params;
+            const result = await connection("exercise").where({id_exercicio}).select("*");
+            // const result = await ExerciseModel.getByUserWithFilter(exercise_id, {});
 
             return response.status(200).json({result});
         } catch (error) {
@@ -87,8 +94,8 @@ module.exports = {
 
     async delete(request, response){
         try {
-            const {exercise_id} = request.params;
-            const result = await ExerciseModel.deleteById(exercise_id);
+            const {id_exercicio} = request.params;
+            const result = await ExerciseModel.deleteById(id_exercicio);
 
             if (result === 0){
                 return response
