@@ -1,4 +1,4 @@
-const {celebrate, Segment, Joi} = require('celebrate');
+const {celebrate, Segments, Joi} = require('celebrate');
 const { update } = require('../controllers/RelationController');
 
 module.exports = {

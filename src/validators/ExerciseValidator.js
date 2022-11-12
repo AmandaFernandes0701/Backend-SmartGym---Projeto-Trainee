@@ -8,7 +8,7 @@ module.exports = {
             descricao: Joi.number().required(),
             imagem: Joi.string().required(),
         }),
-        [Segments.HEADERS]: Joi.object
+        [Segments.HEADERS]: Joi.object()
         .keys({
             authorization: Joi.string().required(),
         }).unknown(),

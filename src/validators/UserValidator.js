@@ -1,5 +1,6 @@
-const {celebrate, Segment, Joi} = require('celebrate');
+const {celebrate, Segments, Joi} = require('celebrate');
 const { update } = require('../controllers/UserController');
+
 
 module.exports = {
     create: celebrate({
@@ -13,7 +14,7 @@ module.exports = {
             telefone: Joi.string().required(),
             email: Joi.string().email().required(),
             senha: Joi.string().pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')).required(),
-            confirmacaosenha: Joi.ref('senha').required(),
+            confirmacaoSenha:Joi.string().required().valid(Joi.ref('senha')),
         })
     }),
 
@@ -43,7 +44,7 @@ module.exports = {
             telefone: Joi.string().optional(),
             email: Joi.string().email().optional(),
             senha: Joi.string().pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')).optional(),
-            confirmacaosenha: Joi.ref('senha').optional(),
+            confirmacaoSenha:Joi.string().optional().valid(Joi.ref('senha')),
         }).min(1),
     }),
 

@@ -9,7 +9,7 @@ const RelationController = require("./controllers/RelationController");
 
 const UserValidator = require("./validators/UserValidator");
 const ExerciseValidator = require("./validators/ExerciseValidator");
-const RelationValidators = require("./validators/RelationValidator");
+const RelationValidator = require("./validators/RelationValidator");
 const { getByUserId } = require("./models/relation");
 
 const SessionController = require ("./controllers/SessionController");

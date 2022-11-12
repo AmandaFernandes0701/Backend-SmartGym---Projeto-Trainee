@@ -1,10 +1,10 @@
 const Firebase = require("../utils/Firebase");
-const UserModel = require("../models/UserModel");
+const UserModel = require("../models/user");
 const jwt = require("jsonwebtoken");
 const { EmailAuthCredential } = require("firebase/auth");
 
 module.exports = {
-    async singIn(request, response) {
+    async signIn(request, response) {
         try {
             const { email, password } = request.body;
 
