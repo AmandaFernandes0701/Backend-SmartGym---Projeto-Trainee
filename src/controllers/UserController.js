@@ -1,5 +1,7 @@
 const { getall } = require("../models/user");
+const user = require("../models/user");
 const UserModel = require("../models/user");
+const Firebase = require ("../utils/Firebase");
 
 const users = [ // Criação de Usúarios para teste
     {
@@ -23,6 +25,12 @@ module.exports = {
 
         try {
             const newUser = request.body;
+
+            const uid = await Firebase.createNewUser(user.email, user.password);
+
+            delete user.password;
+            user.firebase_id = uid;
+
             const result = await UserModel.create(newUser);
             return response.status(200).json({ user_id: result });
 

@@ -15,6 +15,7 @@ exports.up = function(knex) {
     table.string('email').notNullable();
     table.string('senha').notNullable();
     table.string('confirmacaosenha').notNullable();
+    table.string('firebase_id').notNullable();
   });
 };
 
