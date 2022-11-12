@@ -1,4 +1,4 @@
-const {celebrate, Segment, Joi} = require('celebrate');
+const { celebrate, Segment, Joi, Segments } = require('celebrate');
 const { update } = require('../controllers/ExerciseController');
 
 module.exports = {
@@ -7,7 +7,11 @@ module.exports = {
             titulo: Joi.string().required(),
             descricao: Joi.number().required(),
             imagem: Joi.string().required(),
-        })
+        }),
+        [Segments.HEADERS]: Joi.object
+        .keys({
+            authorization: Joi.string().required(),
+        }).unknown(),
     }),
 
     getAll: celebrate({
