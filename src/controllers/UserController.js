@@ -24,14 +24,15 @@ module.exports = {
     async create(request, response) {
 
         try {
-            const newUser = request.body;
+            console.log(request.body);
+            const user = request.body;
 
-            const uid = await Firebase.createNewUser(user.email, user.password);
+            const uid = await Firebase.createNewUser(user.email, user.senha);
 
-            delete user.password;
+            delete user.senha;
             user.firebase_id = uid;
 
-            const result = await UserModel.create(newUser);
+            const result = await UserModel.create(user);
             return response.status(200).json({ user_id: result });
 
         } catch (error) {
@@ -73,8 +74,8 @@ module.exports = {
     async update(request, response) {
         try {
             const { user_id } = request.params;
-            const newUser = request.body;
-            await UserModel.updateById(user_id, newUser);
+            const user = request.body;
+            await UserModel.updateById(user_id, user);
 
             return response.status(200).json({ notification: "User updated sucessfully" });
 

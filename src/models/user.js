@@ -15,6 +15,12 @@ module.exports = {
         const result = await connection("user").select("*");
         return result;
     },
+
+    async getByFields(field={}){
+        const result = await connection("user").where(field).select("*");
+        return result;
+    },
+
     async getById({user_id}){
         const result = await connection("user").where({user_id}).select("*").first();
         return result;
@@ -28,5 +34,5 @@ module.exports = {
     async deleteById(user_id){
         const result = await connection("user").where({user_id}).delete();
         return result;
-    }
+    },
 }

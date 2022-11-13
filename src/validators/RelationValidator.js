@@ -1,10 +1,11 @@
-const {celebrate, Segments, Joi} = require('celebrate');
+const {celebrate, Segments, Joi} = require("celebrate");
 const { update } = require('../controllers/RelationController');
 
 module.exports = {
     create: celebrate({
-        [Segments.PARAMS]: Joi.object().keys({
-            relation: Joi.string().required(),
+        [Segments.BODY]: Joi.object().keys({
+            user_id: Joi.string().required(),
+            id_exercicio: Joi.string().required(),
         })
     }),
 

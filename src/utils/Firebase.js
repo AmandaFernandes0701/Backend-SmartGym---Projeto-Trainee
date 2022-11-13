@@ -2,24 +2,6 @@ const firebase = require('firebase/app');
 const { signInWithEmailAndPassword } = require('firebase/auth');
 require('firebase/auth');
 
-/* tentativa de resolver problema atualização função 'auth'
-
-import { initializeApp } from 'firebase/app';
-import { getFirestore } from 'firebase/app';
-import { getAuth } from 'firebase/app';
-
-function initializeServices() {
-    const firebaseApp = initializeApp(config.firebase);
-    const firestore = getFirestore(firebaseApp);
-    const getAuth = getAuth(firebaseApp);
-    return { firebaseApp, firestore, auth };
-}
-
-export function getFirebase() {
-    const services = initializeServices();
-    return services;
-} */
-
 const firebaseConfig = {
     apiKey: process.env.API_KEY,
     authDomain: process.env.AUTHDOMAIN ,
@@ -31,18 +13,18 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 module.exports = {
-    async createNewUser(email, password) {
+    async createNewUser(email, senha) {
         const result = await firebase
             .auth()
-            .createUserWithEmailAndPassword(email, password);
+            .createUserWithEmailAndPassword(email, senha);
 
         return result.user.uid;
     },
 
-    async login(email, password) {
+    async login(email, senha) {
         const result = await firebase
             .auth()
-            .signInWithEmailAndPassword(email, password);
+            .signInWithEmailAndPassword(email, senha);
 
         return result.user.uid;
     },

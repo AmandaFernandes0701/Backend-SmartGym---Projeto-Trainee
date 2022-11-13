@@ -1,18 +1,18 @@
-const { celebrate, Segment, Joi, Segments } = require('celebrate');
+const { celebrate, Segments, Joi } = require("celebrate");
 const { update } = require('../controllers/ExerciseController');
 
 module.exports = {
     create: celebrate({
         [Segments.BODY]: Joi.object().keys({
             titulo: Joi.string().required(),
-            descricao: Joi.number().required(),
+            descricao: Joi.string().required(),
             imagem: Joi.string().required(),
         }),
         [Segments.HEADERS]: Joi.object()
         .keys({
             authorization: Joi.string().required(),
         }).unknown(),
-    }),
+    }), 
 
     getAll: celebrate({
         [Segments.PARAMS]: Joi.object().keys({

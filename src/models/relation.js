@@ -16,7 +16,7 @@ module.exports = {
 
     async getByUserId({user_id}){
         const result = await connection("relation").join("exercise","exercise.id_exercicio", "=", "relation.id_exercicio").where({"relation.user_id":user_id}).select("exercise.*");
-        return result;
+        return result; 
     },
 
     async deleteByUserIdByExercise({user_id,id_exercicio}){

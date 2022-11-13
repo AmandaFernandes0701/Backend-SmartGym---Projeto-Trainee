@@ -27,14 +27,14 @@ routes.delete("/exercise/:id_exercicio", ExerciseValidator.delete, auth.authenti
 // USERS
 routes.get("/users", UserValidator.getAll, auth.authenticateToken, UserController.getAll);
 routes.get("/users/:user_id:", UserValidator.getById, auth.authenticateToken, UserController.getById);
-routes.post("/users", UserValidator.create, auth.authenticateToken, UserController.create);
+routes.post("/users", UserValidator.create, UserController.create);
 routes.put("/users/:user_id:", UserValidator.update, auth.authenticateToken, UserController.update);
 routes.delete("/users/:user_id:", UserValidator.delete, auth.authenticateToken, UserController.delete);
 
 // RELATIONS
-routes.get("/relation/:user_id", RelationValidator.getByUserId, RelationController.getByUserId);
-routes.post("/relation", RelationValidator.create, RelationController.create);
-routes.delete("/relation/:user_id/:id_exercicio", RelationValidator.delete, RelationController.delete);
+routes.get("/relation/:user_id", RelationValidator.getByUserId, auth.authenticateToken, RelationController.getByUserId);
+routes.post("/relation", RelationValidator.create, auth.authenticateToken, RelationController.create);
+routes.delete("/relation/:user_id/:id_exercicio", RelationValidator.delete, auth.authenticateToken, RelationController.delete);
 
 module.exports = routes;
 

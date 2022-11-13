@@ -1,4 +1,4 @@
-const {celebrate, Segments, Joi} = require('celebrate');
+const {celebrate, Segments, Joi} = require("celebrate");
 const { update } = require('../controllers/UserController');
 
 
@@ -9,12 +9,11 @@ module.exports = {
             idade: Joi.number().required(),
             cpf: Joi.string().required(),
             sexo: Joi.string().required(),
-            endereço: Joi.string().required(),
+            endereco: Joi.string().required(),
             cidadeestado: Joi.string().required(),
             telefone: Joi.string().required(),
             email: Joi.string().email().required(),
-            senha: Joi.string().pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')).required(),
-            confirmacaoSenha:Joi.string().required().valid(Joi.ref('senha')),
+            senha: Joi.string().min(6).pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')).required(),
         })
     }),
 
