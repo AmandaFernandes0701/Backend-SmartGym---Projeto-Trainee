@@ -14,7 +14,6 @@ module.exports = {
             telefone: Joi.string().required(),
             email: Joi.string().email().required(),
             senha: Joi.string().min(6).pattern(new RegExp('^[a-zA-Z0-9]{6,30}$')).required(),
-            confirmacaosenha:Joi.string().valid(Joi.ref('senha')).required(),
         })
     }),
 
@@ -43,8 +42,8 @@ module.exports = {
             cidadeestado: Joi.string().optional(),
             telefone: Joi.string().optional(),
             email: Joi.string().email().optional(),
-            senha: Joi.string().pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')).optional(),
-            confirmacaosenha:Joi.string().valid(Joi.ref('senha')).optional(),
+            senha: Joi.string().min(6).pattern(new RegExp('^[a-zA-Z0-9]{6,30}$')).optional(),
+            confirmacaosenha: Joi.string().optional(),
         }).min(1),
     }),
 
