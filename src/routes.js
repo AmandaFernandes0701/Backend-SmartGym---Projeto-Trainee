@@ -26,10 +26,10 @@ routes.delete("/exercise/:id_exercicio", ExerciseValidator.delete, auth.authenti
 
 // USERS
 routes.get("/users", UserValidator.getAll, auth.authenticateToken, UserController.getAll);
-routes.get("/users/:user_id:", UserValidator.getById, auth.authenticateToken, UserController.getById);
+routes.get("/users/:user_id", UserValidator.getById, auth.authenticateToken, UserController.getById);
 routes.post("/users", UserValidator.create, UserController.create);
-routes.put("/users/:user_id:", UserValidator.update, auth.authenticateToken, UserController.update);
-routes.delete("/users/:user_id:", UserValidator.delete, auth.authenticateToken, UserController.delete);
+routes.put("/users/:user_id", UserValidator.update, auth.authenticateToken, UserController.update);
+routes.delete("/users/:user_id", UserValidator.delete, auth.authenticateToken, UserController.delete);
 
 // RELATIONS
 routes.get("/relation/:user_id", RelationValidator.getByUserId, auth.authenticateToken, RelationController.getByUserId);

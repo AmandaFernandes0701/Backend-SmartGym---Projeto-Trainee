@@ -14,6 +14,7 @@ module.exports = {
             telefone: Joi.string().required(),
             email: Joi.string().email().required(),
             senha: Joi.string().min(6).pattern(new RegExp('^[a-zA-Z0-9]{6,30}$')).required(),
+
         })
     }),
 
@@ -38,7 +39,7 @@ module.exports = {
             idade: Joi.number().optional(),
             cpf: Joi.string().optional(),
             sexo: Joi.string().optional(),
-            endereço: Joi.string().optional(),
+            endereco: Joi.string().optional(),
             cidadeestado: Joi.string().optional(),
             telefone: Joi.string().optional(),
             email: Joi.string().email().optional(),
