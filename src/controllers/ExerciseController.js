@@ -94,8 +94,10 @@ module.exports = {
         try {
             const { id_exercicio } = request.params;
             const newExercise = request.body;
+            console.log({id_exercicio, newExercise});
 
             await ExerciseModel.updateById(id_exercicio, newExercise);
+
 
             return response.status(200).json({ notification: "Exercise updated sucessfully" });
 

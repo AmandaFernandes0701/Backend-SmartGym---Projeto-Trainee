@@ -18,7 +18,7 @@ const SessionController = require ("./controllers/SessionController");
 routes.post("/login", SessionController.signIn);
 
 // EXERCISES
-routes.get("/exercise", ExerciseValidator.getAll, auth.authenticateToken, ExerciseController.getAll);
+routes.get("/exercise", ExerciseValidator.getAll, ExerciseController.getAll);
 routes.get("/exercise/:id_exercicio", ExerciseValidator.getById, auth.authenticateToken, ExerciseController.getById);
 routes.post("/exercise", ExerciseValidator.create, auth.authenticateToken, ExerciseController.create);
 routes.put("/exercise/:id_exercicio", ExerciseValidator.update, auth.authenticateToken, ExerciseController.update);

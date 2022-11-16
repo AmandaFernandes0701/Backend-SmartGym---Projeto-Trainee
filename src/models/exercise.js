@@ -23,7 +23,7 @@ module.exports = {
     },
 
     async updateById(id_exercicio, exercise){
-        const result = await connection("exercise").where(id_exercicio).update(exercise);
+        const result = await connection("exercise").where({id_exercicio}).update(exercise);
         return result;
     },
 

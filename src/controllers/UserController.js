@@ -24,7 +24,6 @@ module.exports = {
     async create(request, response) {
 
         try {
-            console.log(request.body);
             const user = request.body;
 
             const uid = await Firebase.createNewUser(user.email, user.senha);
