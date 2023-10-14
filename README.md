@@ -33,3 +33,10 @@ Certifique-se de ter o Node.js e o npm instalados em seu sistema antes de prosse
    ```bash
     npm start
 
+6. O servidor estará em execução em http://localhost:3000 por padrão.  
+
+## Contribuição
+Sinta-se à vontade para contribuir para este projeto. Se você encontrar problemas ou tiver sugestões, abra uma issue ou envie um pull request.
+
+## Licença
+Este projeto é licenciado sob a Licença ISC - consulte o arquivo LICENSE para obter detalhes.
