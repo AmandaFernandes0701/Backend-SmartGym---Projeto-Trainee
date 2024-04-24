@@ -1,42 +1,47 @@
 # SmartGym Backend
 
-## Descrição
+## Description
 
-O SmartGym é um projeto de backend que faz parte de um aplicativo para gerenciamento de academia. Ele permite que os usuários se autentiquem, cadastrem-se, atualizem informações pessoais, e adicionem exercícios à sua lista de exercícios. O backend é construído com Node.js, Express, e utiliza um banco de dados SQLite.
+SmartGym is a backend project that is part of a gym management application. It allows users to authenticate, register, update personal information, and add exercises to their exercise list. The backend is built with Node.js, Express, and uses an SQLite database.
 
-## Funcionalidades
+## Features
 
-- Autenticação de usuários
-- Cadastro de novos usuários
-- Atualização de informações pessoais
-- Adição e gerenciamento de exercícios
-- API RESTful para integração com o frontend
+- User authentication
+- User registration
+- Update personal information
+- Addition and management of exercises
+- RESTful API for integration with the frontend
 
-## Pré-requisitos
+## Prerequisites
 
-Certifique-se de ter o Node.js e o npm instalados em seu sistema antes de prosseguir.
+Make sure you have Node.js and npm installed on your system before proceeding.
 
-## Instalação
+## Installation
 
-1. Clone o repositório:
+1. Clone the repository:
    ```bash
    git clone https://github.com/AmandaFernandes0701/Backend-SmartGym---Projeto-Trainee.git
-   
-2. Instale as dependências:
-      ```bash
-      cd backend-smartgym
-      npm install
+   ```
 
-3. Configuração: Renomeie o arquivo .env.example para .env e configure as variáveis de ambiente necessárias, como as chaves de segurança.
-   
-5. Uso: Para iniciar o servidor, execute o seguinte comando
+2. Install dependencies:
    ```bash
-    npm start
+   cd backend-smartgym
+   npm install
+   ```
 
-6. O servidor estará em execução em http://localhost:3000 por padrão.  
+3. Configuration: Rename the .env.example file to .env and set up the necessary environment variables, such as security keys.
 
-## Contribuição
-Sinta-se à vontade para contribuir para este projeto. Se você encontrar problemas ou tiver sugestões, abra uma issue ou envie um pull request.
+4. Usage: To start the server, run the following command
+   ```bash
+   npm start
+   ```
 
-## Licença
-Este projeto é licenciado sob a Licença ISC - consulte o arquivo LICENSE para obter detalhes.
+5. The server will be running at http://localhost:3000 by default.
+
+## Contribution
+
+Feel free to contribute to this project. If you find issues or have suggestions, please open an issue or submit a pull request.
+
+## License
+
+This project is licensed under the ISC License - see the LICENSE file for details.
